@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.TextButton
 import com.theguardianai.phishingdetector.ui.theme.TheGuardianAITheme
+import com.theguardianai.phishingdetector.BuildConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -405,7 +406,11 @@ fun MainScreen(
     LaunchedEffect(Unit) {
         try {
             withContext(Dispatchers.IO) {
-                val client = OkHttpClient()
+                val client = OkHttpClient.Builder()
+                    .connectTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
+                    .readTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
+                    .writeTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
+                    .build()
                 val request = Request.Builder()
                     .url("https://phishing-api-j7fs.onrender.com/")
                     .get().build()
@@ -540,8 +545,12 @@ fun MainScreen(
                                         )
                                         addToHistory(context, historyItem)
                                         scanHistory = getScanHistory(context)
+                                    } catch (e: java.net.UnknownHostException) {
+                                        errorMessage = "No internet connection. Please check your network."
+                                    } catch (e: java.net.SocketTimeoutException) {
+                                        errorMessage = "Request timed out. The server may be waking up — try again in 30 seconds."
                                     } catch (e: Exception) {
-                                        errorMessage = "API unavailable. Please try again."
+                                        errorMessage = "Something went wrong. Please try again."
                                     }
                                     isLoading = false
                                     loadingStep = 0
@@ -1409,8 +1418,12 @@ fun HistoryItem(
 // ─── API Call ─────────────────────────────────────────────────────────────────────
 suspend fun scanUrl(url: String): ScanResult {
     return withContext(Dispatchers.IO) {
-        val client = OkHttpClient()
-        val apiKey = "The-01guardian-AI-0205-secured-key"
+        val client = OkHttpClient.Builder()
+            .connectTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
+            .readTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
+            .writeTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
+            .build()
+        val apiKey = BuildConfig.API_KEY
         val apiUrl = "https://phishing-api-j7fs.onrender.com/predict"
 
         var processedUrl = url
