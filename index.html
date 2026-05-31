@@ -678,6 +678,40 @@
             .steps { grid-template-columns: 1fr; }
             .stats-grid { grid-template-columns: 1fr 1fr; }
         }
+        /* 1. FORCE THE PAGE TO STOP SCROLLING HORIZONTALLY */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. MOBILE EMERGENCY OVERRIDE */
+@media (max-width: 768px) {
+    /* Target the main section/table wrapper to force it into a single responsive column */
+    section, main, .hero, .wrapper, table {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Prevent text elements from cutting off or stretching past the viewport */
+    h1, h2, p, div {
+        max-width: 100% !important;
+        white-space: normal !important; /* Forces text to wrap instead of cutting off */
+        box-sizing: border-box !important;
+    }
+    
+    /* Ensure the phone mockup scales down and doesn't push the screen wide */
+    .hero-visual {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+    }
+}
     </style>
 </head>
 <body>
