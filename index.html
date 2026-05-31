@@ -689,38 +689,55 @@ html, body {
 
 /* MOBILE EMERGENCY OVERRIDE */
 @media (max-width: 768px) {
-    /* Reset the main containers to stop pushing right */
-    section, main, .hero, .wrapper, table {
+    /* 1. Force the parent containers to center completely */
+    section, main, .hero, .wrapper, table, .hero-content {
         display: flex !important;
         flex-direction: column !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        padding-left: 0 !important;
-        margin-left: 0 !important;
-    }
-
-    /* Shift text left and prevent cut-offs */
-    h1, h2, h3, p, .hero-content {
-        text-align: left !important; 
+        align-items: center !important;    /* Centers items horizontally */
+        justify-content: center !important;
         width: 100% !important;
         max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 20px !important; 
+        margin: 0 auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Scale down the massive headers so they fit and center perfectly */
+    h1, h2, .hero-content h1, .hero-content h2 {
+        font-size: 28px !important;       /* Shrinks the giant text to fit mobile viewports */
+        line-height: 1.2 !important;
+        text-align: center !important;     /* Centers the text lines */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 20px !important;       /* Safety padding on sides */
+        margin: 15px 0 !important;
         box-sizing: border-box !important;
         overflow-wrap: break-word !important;
     }
+
+    /* 3. Center the description paragraph */
+    p {
+        text-align: center !important;
+        font-size: 15px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 25px !important;
+        margin: 10px 0 !important;
+        box-sizing: border-box !important;
+    }
     
-    /* Align buttons to match the left-aligned text */
-    .hero a, .hero button, div[class*="button"] {
-        margin-left: 20px !important; 
+    /* 4. Center all action buttons */
+    .hero a, .hero button, div[class*="button"], [class*="download"] {
+        margin: 10px auto !important; 
         display: inline-block !important;
+        text-align: center !important;
     }
 
-    /* Bring the screenshots back */
+    /* 5. Keep screenshots visible below */
     .hero-visual {
         width: 100% !important;
         overflow: visible !important; 
-        min-height: 600px !important; 
+        min-height: 580px !important; 
     }
 }
     </style>
