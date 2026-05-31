@@ -712,6 +712,27 @@ html, body {
         overflow: hidden !important;
     }
 }
+        /* 3. CENTER TEXT AND FIX CUT-OFFS ON MOBILE */
+@media (max-width: 768px) {
+    h1, h2, h3, p {
+        text-align: center !important; /* This centers your text */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 20px !important;  /* Safety gap on the left */
+        padding-right: 20px !important; /* Safety gap on the right */
+        box-sizing: border-box !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        overflow-wrap: break-word !important; /* Forces text to drop to the next line instead of cutting off */
+    }
+    
+    /* Center the buttons below the text */
+    .hero a, .hero button, div[class*="button"] {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: table !important; /* Tricks buttons into centering properly */
+    }
+}
     </style>
 </head>
 <body>
