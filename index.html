@@ -194,13 +194,9 @@
 
         .hero h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(1.8rem, 5vw, 3.75rem);
-            word-break: break-word;
-            overflow-wrap: break-word;
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
         }
 
         .hero h1 .gradient-text {
@@ -294,12 +290,18 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            padding: 0 20px; 
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden; 
         }
-
-        .phone-stack {
+                .phone-stack {
             position: relative;
             width: 300px;
             height: 580px;
+            max-width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
         }
 
         .phone-frame {
@@ -707,7 +709,10 @@
             </div>
             <h1>
                 AI-Powered Protection.<br>
-                <span class="gradient-text">Guard Every Link.<br>Trust Nothing Blindly.</span>
+                <span class="gradient-text">
+                    Guard Every Link.<br>
+                    Trust Nothing Blindly.
+                </span>
             </h1>
             <p class="hero-sub">
                 Guardian AI uses machine learning trained on 450,000+ URLs to detect phishing attacks in real time — before you click, before it's too late.
