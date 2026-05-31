@@ -6,6 +6,10 @@
     <title>Guardian AI — AI-Powered Phishing Detection</title>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <style>
+        img {
+            will-change: auto;
+            content-visibility: auto;
+        }
         :root {
             --bg: #080B18;
             --bg2: #0D1123;
@@ -29,6 +33,10 @@
             background: var(--bg);
             color: var(--text);
             overflow-x: hidden;
+            max-width: 100vw;}        
+        }
+        * {
+            max-width: 100%;
         }
 
         /* Noise texture overlay */
@@ -184,7 +192,9 @@
 
         .hero h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 3.75rem);
+            font-size: clamp(1.8rem, 5vw, 3.75rem);
+            word-break: break-word;
+            overflow-wrap: break-word;
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
@@ -679,6 +689,7 @@
         <li><a href="#how">How it works</a></li>
         <li><a href="#screenshots">Screenshots</a></li>
         <li><a href="#download" class="nav-cta">Download App</a></li>
+        <li><a href="https://elias02-code.github.io/guardian-ai/scanner" class="nav-cta">Try Web App</a></li>
     </ul>
 </nav>
 
@@ -699,7 +710,11 @@
             <p class="hero-sub">
                 Guardian AI uses machine learning trained on 450,000+ URLs to detect phishing attacks in real time — before you click, before it's too late.
             </p>
+            
             <div class="hero-actions">
+                <a href="your-web-app-url" class="btn-secondary">
+                    🌐 Try in Browser
+                </a>
                 <a href="#download" class="btn-primary">
                     ↓ Download for Android
                 </a>
