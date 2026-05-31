@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardian AI — AI-Powered Phishing Detection</title>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./guardian_icon.png">
     <style>
             img {
             will-change: auto;
@@ -689,11 +690,27 @@ html, body {
 
 /* MOBILE EMERGENCY OVERRIDE */
 @media (max-width: 768px) {
-    /* 1. Force the parent containers to center completely */
+    
+    /* 1. Prevent the navigation block from floating over your hero text */
+    nav, header {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding-bottom: 1.5rem !important;
+        height: auto !important;
+    }
+    
+    /* 2. Hide desktop-only links on mobile to prevent layout stacking */
+    nav a:not(.nav-logo), nav .button-group {
+        display: none !important; 
+    }
+
+    /* 3. Force the parent containers to center completely */
     section, main, .hero, .wrapper, table, .hero-content {
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;    /* Centers items horizontally */
+        align-items: center !important; 
         justify-content: center !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -702,20 +719,20 @@ html, body {
         box-sizing: border-box !important;
     }
 
-    /* 2. Scale down the massive headers so they fit and center perfectly */
-    h1, h2, .hero-content h1, .hero-content h2 {
-        font-size: 28px !important;       /* Shrinks the giant text to fit mobile viewports */
+    /* 4. Scale down the massive headers so they fit and center perfectly */
+    h1, h2, .hero-title, .gradient-text, .hero-content h1, .hero-content h2 {
+        font-size: 28px !important;       
         line-height: 1.2 !important;
-        text-align: center !important;     /* Centers the text lines */
+        text-align: center !important;     
         width: 100% !important;
         max-width: 100% !important;
-        padding: 0 20px !important;       /* Safety padding on sides */
+        padding: 0 20px !important;       
         margin: 15px 0 !important;
         box-sizing: border-box !important;
         overflow-wrap: break-word !important;
     }
 
-    /* 3. Center the description paragraph */
+    /* 5. Center the description paragraph */
     p {
         text-align: center !important;
         font-size: 15px !important;
@@ -726,14 +743,14 @@ html, body {
         box-sizing: border-box !important;
     }
     
-    /* 4. Center all action buttons */
+    /* 6. Center all action buttons */
     .hero a, .hero button, div[class*="button"], [class*="download"] {
         margin: 10px auto !important; 
         display: inline-block !important;
         text-align: center !important;
     }
 
-    /* 5. Keep screenshots visible below */
+    /* 7. Keep screenshots visible below */
     .hero-visual {
         width: 100% !important;
         overflow: visible !important; 
@@ -755,7 +772,7 @@ html, body {
         <li><a href="#how">How it works</a></li>
         <li><a href="#screenshots">Screenshots</a></li>
         <li><a href="#download" class="nav-cta">Download App</a></li>
-        <li><a href="https://elias02-code.github.io/guardian-ai/scanner" class="nav-cta">Try Web App</a></li>
+        <a href="./Guardian-web-app.html?v=1" class="btn-secondary">Try Web App</a>    
     </ul>
 </nav>
 
@@ -780,7 +797,7 @@ html, body {
                 Guardian AI uses machine learning trained on 450,000+ URLs to detect phishing attacks in real time — before you click, before it's too late.
             </p>
             <div class="hero-actions">
-                <a href="./Guardian-web-app.html" class="btn-secondary">
+                <a href="./Guardian-web-app.html?v=1" class="btn-secondary">
                     🌐 Try in Browser
                 </a>
                 <a href="#download" class="btn-primary">
