@@ -740,61 +740,6 @@ html, body {
         min-height: 580px !important; 
     }
 }
-/* Mobile Responsive Overrides to Center the Layout */
-@media (max-width: 768px) {
-    html, body {
-        overflow-x: hidden; /* Stops unwanted horizontal shifting and page shaking */
-        width: 100%;
-    }
-
-    /* Force the layout sections to stack cleanly vertically instead of horizontally */
-    main, .hero-container, .main-section, .main {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
-        padding: 1.5rem 1rem !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        box-sizing: border-box !important;
-    }
-
-    /* Pull the text block leftward and center it completely in viewport */
-    .hero-text, .left-content {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        padding: 0 !important;
-        text-align: center !important;
-    }
-
-    /* Align tracking badges or status pills horizontally in the center */
-    .pills, nav, .nav-links {
-        display: flex !important;
-        justify-content: center !important;
-        flex-wrap: wrap !important;
-        margin: 0 auto 1.5rem auto !important;
-    }
-
-    /* Prevent action buttons from spilling over the card constraints */
-    .cta-buttons, .button-group {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 1rem !important;
-        width: 100% !important;
-    }
-
-    /* Ensure the phone preview mockup scales down cleanly without pushing text aside */
-    .hero-image, .right-content, img {
-        max-width: 90% !important;
-        height: auto !important;
-        margin: 2rem auto 0 auto !important;
-        display: block !important;
-    }
-}
     </style>
 </head>
 <body>
