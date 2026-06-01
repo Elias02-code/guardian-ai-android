@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardian AI — URL Scanner</title>
-    <script src="config.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="./guardian_icon.png">
     <style>
@@ -124,7 +123,7 @@
 <div class="main">
     <div class="header">
         <img src="guardian_icon.png" alt="Guardian AI" class="header-icon">
-        <h1>URL Scanner</h1>
+        <h1>Hello Guardian</h1>
         <p>Paste any link below to check if it's safe or a phishing attempt.</p>
         <div class="pills">
             <div class="pill"><div class="pill-dot"></div> API Live</div>
@@ -192,12 +191,10 @@
 </div>
 
 <script>
-    // Fallback values if config.js is not loaded
-    const API_URL = CONFIG?.API_URL || 'https://phishing-api-j7fs.onrender.com/predict';
-    const API_KEY = CONFIG?.API_KEY || '';
-    const REPORT_EMAIL = CONFIG?.REPORT_EMAIL || 'elijahadole0205@gmail.com';
+    const API_URL = 'https://phishing-api-j7fs.onrender.com/predict';
+    const API_KEY = 'a729113af4417476466fe22f4f094f33c53e08fa44b6a11d8d52be1c8467b711';
+    const REPORT_EMAIL = 'elijahadole0205@gmail.com';
     let history = JSON.parse(localStorage.getItem('g_history') || '[]');
-    let currentUrl = '';
     let currentResult = null;
 
     fetch('https://phishing-api-j7fs.onrender.com/').catch(()=>{});
@@ -212,10 +209,11 @@
     });
 
     document.getElementById('urlInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') scanURL();
+        if (e.key === 'Enter') scanURL(); 
     });
 
     async function scanURL() {
+        let currentUrl;
         const input = document.getElementById('urlInput').value.trim();
         if (!input) return;
         let url = input;
