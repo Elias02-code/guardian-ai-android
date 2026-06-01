@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardian AI — URL Scanner</title>
+    <script src="config.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="./guardian_icon.png">
     <style>
@@ -191,9 +192,10 @@
 </div>
 
 <script>
-    const API_URL = 'https://phishing-api-j7fs.onrender.com/predict';
-    const API_KEY = 'The-01guardian-AI-0205-secured-key';
-    const REPORT_EMAIL = 'elijahadole0205@gmail.com';
+    // Fallback values if config.js is not loaded
+    const API_URL = CONFIG?.API_URL || 'https://phishing-api-j7fs.onrender.com/predict';
+    const API_KEY = CONFIG?.API_KEY || '';
+    const REPORT_EMAIL = CONFIG?.REPORT_EMAIL || 'elijahadole0205@gmail.com';
     let history = JSON.parse(localStorage.getItem('g_history') || '[]');
     let currentUrl = '';
     let currentResult = null;

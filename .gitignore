@@ -12,5 +12,13 @@
 /captures
 .externalNativeBuild
 .cxx
+# Sensitive files - NEVER commit
 local.properties
-gradle.properties
+.env
+.env.local
+*.key
+*.pem
+
+# Web app config file (contains API key)
+config.js
+!config.js.example

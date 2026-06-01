@@ -1,0 +1,5 @@
+const CONFIG = {
+    API_URL: 'https://phishing-api-j7fs.onrender.com/predict',
+    API_KEY: 'your_api_key_here',
+    REPORT_EMAIL: 'elijahadole0205@gmail.com'
+};
