@@ -192,7 +192,6 @@
 
 <script>
     const API_URL = 'https://phishing-api-j7fs.onrender.com/predict';
-    const API_KEY = 'a729113af4417476466fe22f4f094f33c53e08fa44b6a11d8d52be1c8467b711';
     const REPORT_EMAIL = 'elijahadole0205@gmail.com';
     let history = JSON.parse(localStorage.getItem('g_history') || '[]');
     let currentResult = null;
@@ -237,11 +236,26 @@
         }, 600);
 
         try {
-            const response = await fetch(API_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY },
-                body: JSON.stringify({ url })
-            });
+            async function scanURL() {
+            const url =
+            document.getElementById("urlInput").value.trim();
+
+        const response = await fetch(
+            "https://phishing-api-j7fs.onrender.com/predict",
+            {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                url: url
+            })
+            }
+        );
+
+  const data = await response.json();
+  console.log(data);
+};
             clearInterval(stepInterval);
             steps.forEach(s => document.getElementById(s).className = 'loading-step done');
             await new Promise(r => setTimeout(r, 400));

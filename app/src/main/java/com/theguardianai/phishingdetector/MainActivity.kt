@@ -550,6 +550,7 @@ fun MainScreen(
                                     } catch (e: java.net.SocketTimeoutException) {
                                         errorMessage = "Request timed out. The server may be waking up — try again in 30 seconds."
                                     } catch (e: Exception) {
+                                        android.util.Log.e("GuardianAI", "Scan failed: ${e.message}", e)
                                         errorMessage = "Something went wrong. Please try again."
                                     }
                                     isLoading = false
