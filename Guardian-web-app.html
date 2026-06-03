@@ -234,29 +234,17 @@
             if (stepIndex < steps.length) { document.getElementById(steps[stepIndex]).className = 'loading-step active'; stepIndex++; }
             else clearInterval(stepInterval);
         }, 600);
+        
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url })
+                });
 
-        try {
-            async function scanURL() {
-            const url =
-            document.getElementById("urlInput").value.trim();
+                clearInterval(stepInterval);
 
-        const response = await fetch(
-            "https://phishing-api-j7fs.onrender.com/predict",
-            {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                url: url
-            })
-            }
-        );
-
-  const data = await response.json();
-  console.log(data);
-};
-            clearInterval(stepInterval);
+            
             steps.forEach(s => document.getElementById(s).className = 'loading-step done');
             await new Promise(r => setTimeout(r, 400));
             if (!response.ok) throw new Error(response.status === 401 ? 'Invalid API key' : 'Server error');
